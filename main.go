@@ -89,7 +89,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	// create the Bonus message, which will be the payload
+	// create the bonus message, which will be the payload
 	bonus := &bonus{
 		Amount:        1,
 		Reason:        *reason,
