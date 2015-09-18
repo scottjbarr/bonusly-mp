@@ -89,18 +89,12 @@ func main() {
 		os.Exit(1)
 	}
 
-	// create the http parameters
-	params := fmt.Sprintf("access_token=%v", *token)
-
 	// create the Bonus message, which will be the payload
 	bonus := &bonus{
 		Amount:        1,
 		Reason:        *reason,
 		ReceiverEmail: *email,
 	}
-
-	// create the url
-	url := fmt.Sprintf("%v/%v?%v", server, resource, params)
 
 	var payload []byte
 	var err error
@@ -109,6 +103,12 @@ func main() {
 		fmt.Printf("%v", err)
 		os.Exit(2)
 	}
+
+	// create the http parameters
+	params := fmt.Sprintf("access_token=%v", *token)
+
+	// create the url
+	url := fmt.Sprintf("%v/%v?%v", server, resource, params)
 
 	// we need to wait for the goroutines to finish
 	var wg sync.WaitGroup
