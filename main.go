@@ -11,6 +11,7 @@ import (
 	"sync"
 )
 
+// bonus is serialised to a POST payload
 type bonus struct {
 	Amount        uint   `json:"amount"`
 	Reason        string `json:"reason"`
@@ -39,10 +40,20 @@ func init() {
 	}
 }
 
+// validate user input, roughly.
 func validate() bool {
 	return *points > 0 && len(*email) > 0 && len(*reason) > 0 && len(*token) > 0
 }
 
+// give points
+//
+// This implementation is only called as a goroutine from main() so rather
+// than making a nice api friendly method the method was designed to
+// accept preconstructed values which would be used repeatedly.
+//
+// url : the url to POST to
+// points : the number of points to give
+// payload : the encoded payload
 func give(url *string, points int, payload *[]byte) error {
 	buf := bytes.NewBuffer(*payload)
 	resp, err := http.Post(*url, "application/json", buf)
@@ -102,8 +113,10 @@ func main() {
 	// we need to wait for the goroutines to finish
 	var wg sync.WaitGroup
 
+	// set the number of goroutines to wait for
 	wg.Add(*points)
 
+	// give, in parallel
 	for i := 0; i < *points; i++ {
 		go func() {
 			defer wg.Done()
