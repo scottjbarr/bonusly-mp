@@ -1,4 +1,4 @@
-# Bonus.ly
+# Bonus.ly Multi Points
 
 Give out Bonus.ly bonuses, 1 point at a time.
 
@@ -10,7 +10,9 @@ You will need an access token to run this.
 
 This example will send 1 point, 10 times to a@b.com.
 
-    bonusly -token abc -points 10 -email a@b.com -reason "for the lulz #wat"
+    bonusly-mp -token abc -points 10 -email a@b.com -reason "for the lulz #wat"
+
+User a@b.com still ends up with 10 bonus points, and you gave 10 times.
 
 ## Licence
 
