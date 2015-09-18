@@ -63,7 +63,7 @@ func give(url *string, points int, payload *[]byte) error {
 		return fmt.Errorf("Unable to unmarshal response")
 	}
 
-	if response["success"] != "true" {
+	if response["success"] != true {
 		return fmt.Errorf("%v", response["message"])
 	}
 
