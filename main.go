@@ -55,6 +55,7 @@ func validate() bool {
 // points : the number of points to give
 // payload : the encoded payload
 func give(url *string, points int, payload *[]byte) error {
+	// send the POST request
 	buf := bytes.NewBuffer(*payload)
 	resp, err := http.Post(*url, "application/json", buf)
 
@@ -63,11 +64,12 @@ func give(url *string, points int, payload *[]byte) error {
 	}
 
 	if err != nil {
-		return fmt.Errorf("Post failed : %+v", err)
+		return fmt.Errorf("POST failed : %v", err)
 	}
 
 	body, err := ioutil.ReadAll(resp.Body)
 
+	// deserialize the JSON response
 	var response map[string]interface{}
 
 	if err = json.Unmarshal(body, &response); err != nil {
