@@ -8,11 +8,12 @@ It is a bit cheeky to do it, but you get more points as a "giver" this way :)
 
 You will need an access token to run this.
 
-This example will send 1 point, 10 times to a@b.com.
+This example will send 1 point to a@b.com, 10 times.
 
     bonusly-mp -token abc -points 10 -email a@b.com -reason "for the lulz #wat"
 
-User a@b.com still ends up with 10 bonus points, and you gave 10 times.
+User a@b.com ends up with 10 bonus points, and you gave 10 times. Everybody
+wins!
 
 ## Licence
 
