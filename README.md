@@ -15,6 +15,10 @@ This example will send 1 point to a@b.com, 10 times.
 User a@b.com ends up with 10 bonus points, and you gave 10 times. Everybody
 wins!
 
+## References
+
+- [The Bonus.ly API](https://bonus.ly/api)
+
 ## Licence
 
 The MIT License (MIT)
