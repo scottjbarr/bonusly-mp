@@ -20,4 +20,4 @@ The MIT License (MIT)
 
 Copyright (c) 2015 Scott Barr
 
-See [LICENSE.md](LICENSE.md)
+See [LICENCE.md](LICENCE.md)
