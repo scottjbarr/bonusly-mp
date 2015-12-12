@@ -11,7 +11,7 @@ It is a bit cheeky to do it, but you get more points as a "giver" this way :)
 ## Releases
 
 If you don't have [Go](http://golang.org) installed, you can download binaries
-from the [releases](releases) page.
+from the [releases](../../releases) page.
 
 ## Example Usage
 
